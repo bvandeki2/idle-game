@@ -1,0 +1,21 @@
+.Progress-bar {
+    /* border-radius: 0.2rem; */
+    /* box-shadow: 0 0 0.1rem rgba(0, 0, 0, 1.0); */
+    overflow: hidden;
+}
+
+@keyframes progress {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.Progress-fill {
+    background-color: black;
+    height: 0.3rem;
+    animation-name: progress;
+}
