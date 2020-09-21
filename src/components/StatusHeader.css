@@ -1,5 +1,5 @@
 .Status-header {
-    position: fixed;
+    position: sticky;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
     width: 100%;
 }
@@ -7,5 +7,4 @@
 .Status-container {
     display: flex;
     flex-flow: column;
-    margin: 0.4rem;
 }
