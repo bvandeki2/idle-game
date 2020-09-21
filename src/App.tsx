@@ -60,10 +60,12 @@ function App() {
                 msPerTick={msPerTick}
                 resourceState={gameState.resourceState}
             />
-            <BuyButton onClick={buyBasic} />
-            {gameState.buildings.map((building: Building, i: number) => (
-                <BuildingCard building={building} key={i} />
-            ))}
+            <div className="Primary-container">
+                <BuyButton onClick={buyBasic} />
+                {gameState.buildings.map((building: Building, i: number) => (
+                    <BuildingCard building={building} key={i} />
+                ))}
+            </div>
         </div>
     );
 }

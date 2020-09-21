@@ -1,4 +1,5 @@
 import React from 'react';
+import './BuildingCard.css';
 import { Building } from '../../gamelogic/building';
 
 interface Props {
@@ -7,9 +8,10 @@ interface Props {
 
 function BuildingCard(props: Props) {
     return (
-        <div>
-            <p>Building: {props.building.displayName}</p>
-            <p>raw: {props.building.name}</p>
+        <div className="Building-card">
+            <span>Building: {props.building.displayName}</span>
+            <br />
+            <span>raw: {props.building.name}</span>
         </div>
     );
 }

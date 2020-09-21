@@ -1,10 +1,7 @@
 .Status-header {
     position: sticky;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
+    top: 0;
     width: 100%;
-}
-
-.Status-container {
-    display: flex;
-    flex-flow: column;
+    background-color: white;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
 }

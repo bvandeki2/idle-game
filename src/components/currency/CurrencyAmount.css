@@ -1,0 +1,15 @@
+img.icon {
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.3rem;
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+}
+
+.inline {
+    font-size: 1.3rem;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    margin: 0.2rem;
+}

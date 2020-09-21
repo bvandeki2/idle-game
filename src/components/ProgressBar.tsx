@@ -16,6 +16,7 @@ function ProgressBar(props: Props) {
     const fillRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
+        if (fillRef.current) fillRef.current.classList.add('Progress-fill');
         const interval = setInterval(() => {
             if (fillRef.current) {
                 fillRef.current.classList.remove('Progress-fill');
@@ -32,7 +33,7 @@ function ProgressBar(props: Props) {
 
     return (
         <div className="Progress-bar">
-            <div ref={fillRef} className="Progress-fill" style={style}></div>
+            <div ref={fillRef} style={style}></div>
         </div>
     );
 }

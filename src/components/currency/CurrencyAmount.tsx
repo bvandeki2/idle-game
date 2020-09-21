@@ -1,0 +1,36 @@
+import React from 'react';
+import './CurrencyAmount.css';
+import credit from './images/credit.svg';
+import land from './images/land.svg';
+import redcircle from './images/redcircle.svg';
+import greencircle from './images/greencircle.svg';
+import bluecircle from './images/bluecircle.svg';
+
+interface Props {
+    amount: number;
+}
+
+function MakeCurrencyComponent(image: string, alt: string) {
+    return function (props: Props) {
+        return (
+            <div className="inline">
+                <img src={image} className="icon" alt={alt}></img>
+                {props.amount.toLocaleString()}
+            </div>
+        );
+    };
+}
+
+const CreditAmount = MakeCurrencyComponent(credit, 'credits');
+const LandAmount = MakeCurrencyComponent(land, 'land');
+const RedCircleAmount = MakeCurrencyComponent(redcircle, 'redcircle');
+const GreenCircleAmount = MakeCurrencyComponent(greencircle, 'greencircle');
+const BlueCircleAmount = MakeCurrencyComponent(bluecircle, 'bluecircle');
+
+export {
+    CreditAmount,
+    LandAmount,
+    RedCircleAmount,
+    GreenCircleAmount,
+    BlueCircleAmount,
+};

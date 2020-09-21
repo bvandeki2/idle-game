@@ -1,5 +1,7 @@
 import React from 'react';
 import { ResourceState } from '../gamelogic/state';
+import { CreditAmount } from './currency/CurrencyAmount';
+import ResourceChart from './currency/ResourceChart';
 import ProgressBar from './ProgressBar';
 import './StatusHeader.css';
 
@@ -14,9 +16,7 @@ function StatusHeader(props: Props) {
 
     return (
         <header className="Status-header">
-            <div className="Status-container">
-                <p>score: {resourceState.score.toFixed(2)}</p>
-            </div>
+            <ResourceChart resourceState={resourceState} />
             <ProgressBar duration={msPerTick} onTick={onTick} />
         </header>
     );
