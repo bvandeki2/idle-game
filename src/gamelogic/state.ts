@@ -1,12 +1,12 @@
-import { Building, buildingHandlers } from './building';
+import { buildingDetails, BuildingID } from './building/buildinglist';
+import { applyBuildingGrowth } from './building/growth';
 
-export interface ResourceState {
-    score: number;
-}
+export type ResourceKind = 'score';
+export type ResourceState = { [kind in ResourceKind]: number };
 
 export interface GameState {
     resourceState: ResourceState;
-    buildings: Building[];
+    buildings: BuildingID[];
     lastUpdate: number | null;
 }
 
@@ -27,9 +27,10 @@ function computeResourceState(
     let resourceState = state.resourceState;
 
     for (const building of state.buildings) {
-        resourceState = buildingHandlers[building.name](
+        resourceState = applyBuildingGrowth(
             resourceState,
-            updateCount
+            updateCount,
+            buildingDetails[building].growth
         );
     }
 
@@ -47,7 +48,7 @@ interface FastForwardAndSaveAction {
 }
 interface TryPurchaseBuilding {
     type: 'tryPurchaseBuilding';
-    building: Building;
+    building: BuildingID;
 }
 type GameAction = AssignAction | FastForwardAndSaveAction | TryPurchaseBuilding;
 export function gameReducer(state: GameState, action: GameAction): GameState {

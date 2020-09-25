@@ -1,6 +1,5 @@
 import React from 'react';
 import { ResourceState } from '../gamelogic/state';
-import { CreditAmount } from './currency/CurrencyAmount';
 import ResourceChart from './currency/ResourceChart';
 import ProgressBar from './ProgressBar';
 import './StatusHeader.css';

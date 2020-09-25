@@ -15,7 +15,7 @@ function MakeCurrencyComponent(image: string, alt: string) {
         return (
             <div className="inline">
                 <img src={image} className="icon" alt={alt}></img>
-                {props.amount.toLocaleString()}
+                <div className="quantity">{props.amount.toLocaleString()}</div>
             </div>
         );
     };

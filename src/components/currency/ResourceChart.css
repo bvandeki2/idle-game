@@ -3,7 +3,7 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
 
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .Chart-column {

@@ -1,17 +1,20 @@
 import React from 'react';
+import {
+    BuildingID,
+    buildingDetails,
+} from '../../gamelogic/building/buildinglist';
 import './BuildingCard.css';
-import { Building } from '../../gamelogic/building';
 
 interface Props {
-    building: Building;
+    building: BuildingID;
 }
 
 function BuildingCard(props: Props) {
     return (
         <div className="Building-card">
-            <span>Building: {props.building.displayName}</span>
+            <span>{buildingDetails[props.building].displayName}</span>
             <br />
-            <span>raw: {props.building.name}</span>
+            <span>{props.building}</span>
         </div>
     );
 }
