@@ -2,6 +2,8 @@ import { BuildingDetails } from './building/buildinglist';
 import { calculateCost } from './building/cost';
 import { applyBuildingGrowth } from './building/growth';
 
+const CURRENT_VERSION = 1;
+
 export type ResourceKind = 'score';
 export type ResourceState = { [kind in ResourceKind]: number };
 
@@ -34,12 +36,23 @@ export interface GameState {
 
 export function loadGameState(): GameState | null {
     const save = localStorage.getItem('saveFile');
-    if (save) return JSON.parse(save) as GameState;
+    if (save) {
+        const loaded = JSON.parse(save);
+        const version = loaded.__version || 0;
+        if (version < CURRENT_VERSION) return null;
+        return loaded as GameState;
+    }
     return null;
 }
 
 export function saveGameState(state: GameState) {
-    localStorage.setItem('saveFile', JSON.stringify(state));
+    localStorage.setItem(
+        'saveFile',
+        JSON.stringify({
+            ...state,
+            __version: CURRENT_VERSION,
+        })
+    );
 }
 
 function computeResourceState(
