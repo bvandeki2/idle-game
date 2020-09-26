@@ -38,4 +38,8 @@ function ProgressBar(props: Props) {
     );
 }
 
-export default ProgressBar;
+export default React.memo(ProgressBar, (prevProps, nextProps) => {
+    if (prevProps.duration !== nextProps.duration) return false;
+
+    return true;
+});

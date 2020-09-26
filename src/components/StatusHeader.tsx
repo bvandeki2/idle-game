@@ -27,10 +27,4 @@ function StatusHeader(props: Props) {
     );
 }
 
-export default React.memo(StatusHeader, (prevProps, nextProps) => {
-    if (prevProps.msPerTick !== nextProps.msPerTick) return false;
-    // if (prevProps.onTick !== nextProps.onTick) return false;
-    if (prevProps.resourceState !== nextProps.resourceState) return false;
-
-    return true;
-});
+export default StatusHeader;
