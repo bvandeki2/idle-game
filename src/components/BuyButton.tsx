@@ -23,12 +23,10 @@ function BuyButton(props: Props) {
 
     return (
         <div
-            className="Button-card"
+            className={`Button-card${affordable ? '' : ' Disabled'}`}
             onClick={affordable ? props.onClick : undefined}
         >
-            <h3>{`Buy ${props.building.displayName}${
-                affordable ? '' : '(cannot afford)'
-            }`}</h3>
+            <h3>{`Buy ${props.building.displayName}`}</h3>
             <ResourceChart resourceState={cost}></ResourceChart>
         </div>
     );

@@ -63,8 +63,8 @@ interface AssignAction {
     type: 'assign';
     newState: GameState;
 }
-interface FastForwardAndSaveAction {
-    type: 'fastForwardAndSave';
+interface FastForwarAction {
+    type: 'fastForward';
     count: number;
     when: number;
 }
@@ -72,19 +72,18 @@ interface TryPurchaseBuilding {
     type: 'tryPurchaseBuilding';
     building: BuildingDetails;
 }
-type GameAction = AssignAction | FastForwardAndSaveAction | TryPurchaseBuilding;
+type GameAction = AssignAction | FastForwarAction | TryPurchaseBuilding;
 export function gameReducer(state: GameState, action: GameAction): GameState {
     switch (action.type) {
         case 'assign':
             return action.newState;
-        case 'fastForwardAndSave':
+        case 'fastForward':
             const newResourceState = computeResourceState(state, action.count);
             const newState = {
                 ...state,
                 resourceState: newResourceState,
                 lastUpdate: action.when,
             };
-            saveGameState(newState);
             return newState;
         case 'tryPurchaseBuilding':
             const cost = calculateCost(

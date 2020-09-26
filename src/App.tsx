@@ -9,7 +9,7 @@ import {
     BuildingDetails,
     buildingDetails,
 } from './gamelogic/building/buildinglist';
-import { gameReducer, loadGameState } from './gamelogic/state';
+import { gameReducer, loadGameState, saveGameState } from './gamelogic/state';
 
 function App() {
     const [gameState, gameDispatch] = useReducer(gameReducer, {
@@ -35,7 +35,7 @@ function App() {
             const updateCount = Math.floor(delta / msPerTick);
 
             gameDispatch({
-                type: 'fastForwardAndSave',
+                type: 'fastForward',
                 count: updateCount,
                 when: now,
             });
@@ -44,11 +44,15 @@ function App() {
 
     const tick = useCallback(() => {
         gameDispatch({
-            type: 'fastForwardAndSave',
+            type: 'fastForward',
             count: 1,
             when: new Date().getTime(),
         });
-    }, [gameDispatch]);
+    }, []);
+
+    useEffect(() => {
+        saveGameState(gameState);
+    }, [gameState]);
 
     const buyBasic = useCallback(() => {
         gameDispatch({

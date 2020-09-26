@@ -6,3 +6,7 @@
 .Button-card:hover {
     cursor: pointer;
 }
+.Button-card.Disabled {
+    color: gray;
+    cursor: auto;
+}
