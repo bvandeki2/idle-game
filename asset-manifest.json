@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/idle-game/static/css/main.7cc3b93f.chunk.css",
-    "main.js": "/idle-game/static/js/main.6f413d06.chunk.js",
-    "main.js.map": "/idle-game/static/js/main.6f413d06.chunk.js.map",
+    "main.css": "/idle-game/static/css/main.1b3fa779.chunk.css",
+    "main.js": "/idle-game/static/js/main.9fdc66b6.chunk.js",
+    "main.js.map": "/idle-game/static/js/main.9fdc66b6.chunk.js.map",
     "runtime-main.js": "/idle-game/static/js/runtime-main.77ffee8c.js",
     "runtime-main.js.map": "/idle-game/static/js/runtime-main.77ffee8c.js.map",
-    "static/js/2.9470787c.chunk.js": "/idle-game/static/js/2.9470787c.chunk.js",
-    "static/js/2.9470787c.chunk.js.map": "/idle-game/static/js/2.9470787c.chunk.js.map",
+    "static/js/2.794fe5e0.chunk.js": "/idle-game/static/js/2.794fe5e0.chunk.js",
+    "static/js/2.794fe5e0.chunk.js.map": "/idle-game/static/js/2.794fe5e0.chunk.js.map",
     "index.html": "/idle-game/index.html",
-    "precache-manifest.306cfc274d7ae9edbbece7234094b6e5.js": "/idle-game/precache-manifest.306cfc274d7ae9edbbece7234094b6e5.js",
+    "precache-manifest.e244d3d3f9777e853890999c0c7ec5b8.js": "/idle-game/precache-manifest.e244d3d3f9777e853890999c0c7ec5b8.js",
     "service-worker.js": "/idle-game/service-worker.js",
-    "static/css/main.7cc3b93f.chunk.css.map": "/idle-game/static/css/main.7cc3b93f.chunk.css.map",
-    "static/js/2.9470787c.chunk.js.LICENSE.txt": "/idle-game/static/js/2.9470787c.chunk.js.LICENSE.txt",
+    "static/css/main.1b3fa779.chunk.css.map": "/idle-game/static/css/main.1b3fa779.chunk.css.map",
+    "static/js/2.794fe5e0.chunk.js.LICENSE.txt": "/idle-game/static/js/2.794fe5e0.chunk.js.LICENSE.txt",
     "static/media/bluecircle.svg": "/idle-game/static/media/bluecircle.3cc723b7.svg",
     "static/media/credit.svg": "/idle-game/static/media/credit.7abc0ac4.svg",
     "static/media/greencircle.svg": "/idle-game/static/media/greencircle.3ea27515.svg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.77ffee8c.js",
-    "static/js/2.9470787c.chunk.js",
-    "static/css/main.7cc3b93f.chunk.css",
-    "static/js/main.6f413d06.chunk.js"
+    "static/js/2.794fe5e0.chunk.js",
+    "static/css/main.1b3fa779.chunk.css",
+    "static/js/main.9fdc66b6.chunk.js"
   ]
 }

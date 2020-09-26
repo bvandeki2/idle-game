@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7c655c29890c9b329aa8d1e52626ea3f",
+    "revision": "433e9170025fbf7be100314b62eb56ce",
     "url": "/idle-game/index.html"
   },
   {
-    "revision": "36a5a6026de02a1ec0fa",
-    "url": "/idle-game/static/css/main.7cc3b93f.chunk.css"
+    "revision": "0f63be42d764765d23f8",
+    "url": "/idle-game/static/css/main.1b3fa779.chunk.css"
   },
   {
-    "revision": "48548f987bbb20e14872",
-    "url": "/idle-game/static/js/2.9470787c.chunk.js"
+    "revision": "ec44aebe81369a7334f5",
+    "url": "/idle-game/static/js/2.794fe5e0.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/idle-game/static/js/2.9470787c.chunk.js.LICENSE.txt"
+    "url": "/idle-game/static/js/2.794fe5e0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "36a5a6026de02a1ec0fa",
-    "url": "/idle-game/static/js/main.6f413d06.chunk.js"
+    "revision": "0f63be42d764765d23f8",
+    "url": "/idle-game/static/js/main.9fdc66b6.chunk.js"
   },
   {
     "revision": "6a9109a06b5052bd7dea",
