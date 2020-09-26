@@ -66,7 +66,10 @@ function App() {
                 pages={pagelinks}
                 active={sidebarActive}
                 onDismiss={() => setSidebarActive(false)}
-                onNavigate={navigatePage}
+                onNavigate={(page) => {
+                    navigatePage(page);
+                    setSidebarActive(false);
+                }}
             ></Sidebar>
             <div className="Col">
                 <StatusHeader
