@@ -16,10 +16,10 @@ export function calculateCost(
     existingBuildings: BuildingID[],
     newBuilding: BuildingID,
     costs: MultiCost
-): ResourceState {
+): Partial<ResourceState> {
     let computedCost = Object.fromEntries(
         costs.map((c) => [c.resource, c.initial])
-    ) as ResourceState;
+    ) as Partial<ResourceState>;
 
     for (const building of existingBuildings) {
         if (building === newBuilding) {
@@ -30,7 +30,8 @@ export function calculateCost(
                         computedCost[cost.resource] =
                             cost.roundToNearest *
                             Math.floor(
-                                (cost.factor * computedCost[cost.resource]) /
+                                (cost.factor *
+                                    (computedCost[cost.resource] as number)) /
                                     cost.roundToNearest
                             );
                         break;

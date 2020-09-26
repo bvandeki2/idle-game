@@ -7,15 +7,21 @@ import greencircle from './images/greencircle.svg';
 import bluecircle from './images/bluecircle.svg';
 
 interface Props {
-    amount: number;
+    amount?: number;
+}
+
+function formatUnit(val: number) {
+    if (val < 1e10) return val.toLocaleString();
+    return val.toExponential(3);
 }
 
 function MakeCurrencyComponent(image: string, alt: string) {
     return function (props: Props) {
+        if (props.amount === undefined) return <></>;
         return (
             <div className="inline">
                 <img src={image} className="icon" alt={alt}></img>
-                <div className="quantity">{props.amount.toLocaleString()}</div>
+                <div className="quantity">{formatUnit(props.amount)}</div>
             </div>
         );
     };

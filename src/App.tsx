@@ -14,7 +14,7 @@ import { gameReducer, loadGameState } from './gamelogic/state';
 function App() {
     const [gameState, gameDispatch] = useReducer(gameReducer, {
         resourceState: {
-            score: 0.0,
+            score: 1.0,
         },
         buildings: [],
         lastUpdate: null,
@@ -105,6 +105,7 @@ function App() {
                                     onClick={buyBasic}
                                     building={buildingDetails['basic']}
                                     buildings={gameState.buildings}
+                                    resources={gameState.resourceState}
                                 />
                             ),
                         }}

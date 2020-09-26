@@ -10,7 +10,7 @@ import {
 import './ResourceChart.css';
 
 interface Props {
-    resourceState: ResourceState;
+    resourceState: Partial<ResourceState>;
 }
 
 function ResourceChart(props: Props) {
@@ -18,12 +18,12 @@ function ResourceChart(props: Props) {
         <div className="Chart-container">
             <div className="Chart-column">
                 <CreditAmount amount={props.resourceState.score} />
-                <LandAmount amount={100} />
+                <LandAmount amount={0} />
             </div>
             <div className="Chart-column">
-                <RedCircleAmount amount={104545} />
-                <GreenCircleAmount amount={5} />
-                <BlueCircleAmount amount={4} />
+                <RedCircleAmount amount={0} />
+                <GreenCircleAmount amount={0} />
+                <BlueCircleAmount amount={0} />
             </div>
         </div>
     );

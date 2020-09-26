@@ -1,8 +1,30 @@
 import { BuildingDetails } from './building/buildinglist';
+import { calculateCost } from './building/cost';
 import { applyBuildingGrowth } from './building/growth';
 
 export type ResourceKind = 'score';
 export type ResourceState = { [kind in ResourceKind]: number };
+
+export function subtractResources(
+    a: Partial<ResourceState>,
+    b: Partial<ResourceState>
+): ResourceState {
+    return {
+        score: (a.score || 0) - (b.score || 0),
+    };
+}
+export function canAfford(
+    resources: ResourceState,
+    cost: Partial<ResourceState>
+): boolean {
+    for (const prop in cost) {
+        // if any cost exceeds current resources, cannot afford
+        if ((cost[prop as ResourceKind] || 0) > resources[prop as ResourceKind])
+            return false;
+    }
+
+    return true;
+}
 
 export interface GameState {
     resourceState: ResourceState;
@@ -65,8 +87,18 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
             saveGameState(newState);
             return newState;
         case 'tryPurchaseBuilding':
+            const cost = calculateCost(
+                state.buildings.map((s) => s.type),
+                action.building.type,
+                action.building.cost
+            );
+            const affordable = canAfford(state.resourceState, cost);
+
+            if (!affordable) return state;
+
             return {
                 ...state,
+                resourceState: subtractResources(state.resourceState, cost),
                 buildings: [...state.buildings, action.building],
             };
     }
