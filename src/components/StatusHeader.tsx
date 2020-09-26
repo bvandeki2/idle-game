@@ -8,6 +8,7 @@ interface Props {
     msPerTick: number;
     resourceState: ResourceState;
     onTick: () => any;
+    onHamburgerClick: () => any;
 }
 
 function StatusHeader(props: Props) {
@@ -15,7 +16,12 @@ function StatusHeader(props: Props) {
 
     return (
         <header className="Status-header">
-            <ResourceChart resourceState={resourceState} />
+            <div className="row">
+                <span id="hamburger" onClick={props.onHamburgerClick}>
+                    hamburger
+                </span>
+                <ResourceChart resourceState={resourceState} />
+            </div>
             <ProgressBar duration={msPerTick} onTick={onTick} />
         </header>
     );

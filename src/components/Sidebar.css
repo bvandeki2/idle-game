@@ -1,0 +1,53 @@
+:root {
+    --animation-speed: 100ms;
+}
+
+.Sidebar {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    min-width: 10rem;
+    z-index: 101;
+    background-color: #131352;
+    transition: transform var(--animation-speed) linear;
+    transform: translateX(-100%);
+}
+
+.Shroud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: black;
+    opacity: 0;
+    transition: opacity var(--animation-speed) linear,
+        z-index var(--animation-speed);
+}
+
+.Shroud.Active {
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.Sidebar.Active {
+    transform: none;
+}
+
+@media only screen and (min-width: 768px) {
+    /* Large screen, desktop mode */
+
+    .Sidebar {
+        position: sticky;
+        transform: none;
+    }
+
+    .Shroud {
+        display: none;
+    }
+}
+
+.Sidebar > a {
+    color: white;
+}
