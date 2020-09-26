@@ -5,7 +5,10 @@ import BuyButton from './components/BuyButton';
 import Router, { changePage, initialPageLinks } from './components/Router';
 import Sidebar from './components/Sidebar';
 import StatusHeader from './components/StatusHeader';
-import { BuildingID } from './gamelogic/building/buildinglist';
+import {
+    BuildingDetails,
+    buildingDetails,
+} from './gamelogic/building/buildinglist';
 import { gameReducer, loadGameState } from './gamelogic/state';
 
 function App() {
@@ -50,7 +53,7 @@ function App() {
     const buyBasic = useCallback(() => {
         gameDispatch({
             type: 'tryPurchaseBuilding',
-            building: 'basic',
+            building: buildingDetails['basic'],
         });
     }, [gameDispatch]);
 
@@ -85,7 +88,10 @@ function App() {
                             building: (
                                 <>
                                     {gameState.buildings.map(
-                                        (building: BuildingID, i: number) => (
+                                        (
+                                            building: BuildingDetails,
+                                            i: number
+                                        ) => (
                                             <BuildingCard
                                                 building={building}
                                                 key={i}
@@ -97,7 +103,8 @@ function App() {
                             buy: (
                                 <BuyButton
                                     onClick={buyBasic}
-                                    building="basic"
+                                    building={buildingDetails['basic']}
+                                    buildings={gameState.buildings}
                                 />
                             ),
                         }}

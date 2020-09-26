@@ -1,4 +1,4 @@
-import { buildingDetails, BuildingID } from './building/buildinglist';
+import { BuildingDetails } from './building/buildinglist';
 import { applyBuildingGrowth } from './building/growth';
 
 export type ResourceKind = 'score';
@@ -6,7 +6,7 @@ export type ResourceState = { [kind in ResourceKind]: number };
 
 export interface GameState {
     resourceState: ResourceState;
-    buildings: BuildingID[];
+    buildings: BuildingDetails[];
     lastUpdate: number | null;
 }
 
@@ -30,7 +30,7 @@ function computeResourceState(
         resourceState = applyBuildingGrowth(
             resourceState,
             updateCount,
-            buildingDetails[building].growth
+            building.growth
         );
     }
 
@@ -48,7 +48,7 @@ interface FastForwardAndSaveAction {
 }
 interface TryPurchaseBuilding {
     type: 'tryPurchaseBuilding';
-    building: BuildingID;
+    building: BuildingDetails;
 }
 type GameAction = AssignAction | FastForwardAndSaveAction | TryPurchaseBuilding;
 export function gameReducer(state: GameState, action: GameAction): GameState {

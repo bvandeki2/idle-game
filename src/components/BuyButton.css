@@ -1,0 +1,8 @@
+.Button-card {
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 1);
+    user-select: none;
+}
+
+.Button-card:hover {
+    cursor: pointer;
+}
