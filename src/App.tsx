@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import './App.css';
 import BuildingCard from './components/buildings/BuildingCard';
 import BuyButton from './components/BuyButton';
+import { changePage, initialPageLinks } from './components/pagelinks';
 import Sidebar from './components/Sidebar';
 import StatusHeader from './components/StatusHeader';
 import { BuildingID } from './gamelogic/building/buildinglist';
@@ -17,6 +18,8 @@ function App() {
     });
 
     const msPerTick = 5000;
+
+    const [pagelinks, navigatePage] = useReducer(changePage, initialPageLinks);
 
     // Load game, fast-forwarding to current time
     useEffect(() => {
@@ -60,8 +63,10 @@ function App() {
     return (
         <div className="App">
             <Sidebar
+                pages={pagelinks}
                 active={sidebarActive}
                 onDismiss={() => setSidebarActive(false)}
+                onNavigate={navigatePage}
             ></Sidebar>
             <div className="Col">
                 <StatusHeader

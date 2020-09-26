@@ -1,9 +1,12 @@
 import React from 'react';
+import { Page, PageLink } from './pagelinks';
 import './Sidebar.css';
 
 interface Props {
     active: boolean;
     onDismiss: () => any;
+    pages: PageLink[];
+    onNavigate: (page: Page) => any;
 }
 
 function Sidebar(props: Props) {
@@ -14,8 +17,17 @@ function Sidebar(props: Props) {
                 onClick={props.onDismiss}
             ></div>
             <nav className={`Sidebar${props.active ? ' Active' : ''}`}>
-                <a href="/">link 1</a>
-                <a href="/">link 2</a>
+                {props.pages.map((page, i) => {
+                    return (
+                        <span
+                            key={i}
+                            className={`Navlink${page.active ? ' Active' : ''}`}
+                            onClick={() => props.onNavigate(page.type)}
+                        >
+                            {page.displayName}
+                        </span>
+                    );
+                })}
             </nav>
         </>
     );
