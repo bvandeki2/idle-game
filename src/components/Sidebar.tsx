@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, PageLink } from './pagelinks';
+import { Page, PageLink } from './Router';
 import './Sidebar.css';
 
 interface Props {

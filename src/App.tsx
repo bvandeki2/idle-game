@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import './App.css';
 import BuildingCard from './components/buildings/BuildingCard';
 import BuyButton from './components/BuyButton';
-import { changePage, initialPageLinks } from './components/pagelinks';
+import Router, { changePage, initialPageLinks } from './components/Router';
 import Sidebar from './components/Sidebar';
 import StatusHeader from './components/StatusHeader';
 import { BuildingID } from './gamelogic/building/buildinglist';
@@ -79,12 +79,29 @@ function App() {
                     resourceState={gameState.resourceState}
                 />
                 <div className="Primary-container">
-                    <BuyButton onClick={buyBasic} building="basic" />
-                    {gameState.buildings.map(
-                        (building: BuildingID, i: number) => (
-                            <BuildingCard building={building} key={i} />
-                        )
-                    )}
+                    <Router
+                        pageState={pagelinks}
+                        pages={{
+                            building: (
+                                <>
+                                    {gameState.buildings.map(
+                                        (building: BuildingID, i: number) => (
+                                            <BuildingCard
+                                                building={building}
+                                                key={i}
+                                            />
+                                        )
+                                    )}
+                                </>
+                            ),
+                            buy: (
+                                <BuyButton
+                                    onClick={buyBasic}
+                                    building="basic"
+                                />
+                            ),
+                        }}
+                    ></Router>
                 </div>
             </div>
         </div>

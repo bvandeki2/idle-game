@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type Page = 'building' | 'buy';
 
 export interface PageLink {
@@ -25,4 +27,16 @@ export function changePage(pageLinks: PageLink[], newPage: Page): PageLink[] {
             active: link.type === newPage,
         };
     });
+}
+
+interface Props {
+    pageState: PageLink[];
+    pages: { [page in Page]: JSX.Element };
+}
+export default function Router(props: Props) {
+    for (const pageLink of props.pageState) {
+        if (pageLink.active) return props.pages[pageLink.type];
+    }
+
+    return <></>;
 }
